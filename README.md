@@ -1,9 +1,14 @@
-# api documentation for  [parseurl (v1.3.1)](https://github.com/pillarjs/parseurl)  [![npm package](https://img.shields.io/npm/v/npmdoc-parseurl.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-parseurl) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-parseurl.svg)](https://travis-ci.org/npmdoc/node-npmdoc-parseurl)
+# npmdoc-parseurl
+
+#### api documentation for  [parseurl (v1.3.1)](https://github.com/pillarjs/parseurl)  [![npm package](https://img.shields.io/npm/v/npmdoc-parseurl.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-parseurl) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-parseurl.svg)](https://travis-ci.org/npmdoc/node-npmdoc-parseurl)
+
 #### parse a url with memoization
 
-[![NPM](https://nodei.co/npm/parseurl.png?downloads=true)](https://www.npmjs.com/package/parseurl)
+[![NPM](https://nodei.co/npm/parseurl.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/parseurl)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-parseurl/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-parseurl_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-parseurl/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-parseurl/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-parseurl/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-parseurl/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-parseurl/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-parseurl/build/screenCapture.npmPackageListing.svg)
 
@@ -18,7 +23,6 @@
 {
     "author": {
         "name": "Jonathan Ong",
-        "email": "me@jongleberry.com",
         "url": "http://jongleberry.com"
     },
     "bugs": {
@@ -26,8 +30,7 @@
     },
     "contributors": [
         {
-            "name": "Douglas Christopher Wilson",
-            "email": "doug@somethingdoug.com"
+            "name": "Douglas Christopher Wilson"
         }
     ],
     "dependencies": {},
@@ -58,33 +61,26 @@
     "license": "MIT",
     "maintainers": [
         {
-            "name": "jongleberry",
-            "email": "jonathanrichardong@gmail.com"
+            "name": "jongleberry"
         },
         {
-            "name": "dougwilson",
-            "email": "doug@somethingdoug.com"
+            "name": "dougwilson"
         },
         {
-            "name": "tjholowaychuk",
-            "email": "tj@vision-media.ca"
+            "name": "tjholowaychuk"
         },
         {
-            "name": "mscdex",
-            "email": "mscdex@mscdex.net"
+            "name": "mscdex"
         },
         {
-            "name": "fishrock123",
-            "email": "fishrock123@rocketmail.com"
+            "name": "fishrock123"
         },
         {
-            "name": "defunctzombie",
-            "email": "shtylman@gmail.com"
+            "name": "defunctzombie"
         }
     ],
     "name": "parseurl",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/pillarjs/parseurl.git"
@@ -97,62 +93,6 @@
     },
     "version": "1.3.1"
 }
-```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module parseurl](#apidoc.module.parseurl)
-1.  [function <span class="apidocSignatureSpan">parseurl.</span>original (req)](#apidoc.element.parseurl.original)
-
-
-
-# <a name="apidoc.module.parseurl"></a>[module parseurl](#apidoc.module.parseurl)
-
-#### <a name="apidoc.element.parseurl.original"></a>[function <span class="apidocSignatureSpan">parseurl.</span>original (req)](#apidoc.element.parseurl.original)
-- description and source-code
-```javascript
-function originalurl(req) {
-  var url = req.originalUrl
-
-  if (typeof url !== 'string') {
-    // Fallback
-    return parseurl(req)
-  }
-
-  var parsed = req._parsedOriginalUrl
-
-  if (fresh(url, parsed)) {
-    // Return cached URL parse
-    return parsed
-  }
-
-  // Parse the URL
-  parsed = fastparse(url)
-  parsed._raw = url
-
-  return req._parsedOriginalUrl = parsed
-}
-```
-- example usage
-```shell
-...
-### parseurl(req)
-
-Parse the URL of the given request object (looks at the 'req.url' property)
-and return the result. The result is the same as 'url.parse' in Node.js core.
-Calling this function multiple times on the same 'req' where 'req.url' does
-not change will return a cached parsed object, rather than parsing again.
-
-### parseurl.original(req)
-
-Parse the original URL of the given request object and return the result.
-This works by trying to parse 'req.originalUrl' if it is a string, otherwise
-parses 'req.url'. The result is the same as 'url.parse' in Node.js core.
-Calling this function multiple times on the same 'req' where 'req.originalUrl'
-does not change will return a cached parsed object, rather than parsing again.
-...
 ```
 
 
