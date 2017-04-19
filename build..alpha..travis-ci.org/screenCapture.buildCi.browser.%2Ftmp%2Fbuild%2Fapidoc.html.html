@@ -56,6 +56,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.parseurl.parseurl">
+            function <span class="apidocSignatureSpan"></span>parseurl
+            <span class="apidocSignatureSpan">(req)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.parseurl.original">
             function <span class="apidocSignatureSpan">parseurl.</span>original
             <span class="apidocSignatureSpan">(req)</span>
@@ -69,6 +78,39 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.parseurl" id="apidoc.module.parseurl">module parseurl</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.parseurl.parseurl" id="apidoc.element.parseurl.parseurl">
+        function <span class="apidocSignatureSpan"></span>parseurl
+        <span class="apidocSignatureSpan">(req)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parseurl(req) {
+  var url = req.url
+
+  if (url === undefined) {
+    // URL is undefined
+    return undefined
+  }
+
+  var parsed = req._parsedUrl
+
+  if (fresh(url, parsed)) {
+    // Return cached URL parse
+    return parsed
+  }
+
+  // Parse the URL
+  parsed = fastparse(url)
+  parsed._raw = url
+
+  return req._parsedUrl = parsed
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>
